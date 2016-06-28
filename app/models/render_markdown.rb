@@ -1,4 +1,5 @@
 require "html/pipeline/jolly_good_code/nohtml_markdown_filter"
+require "html/pipeline/jolly_good_code/emoji_filter"
 
 class RenderMarkdown
   def initialize(content)
@@ -9,6 +10,7 @@ class RenderMarkdown
     pipeline = HTML::Pipeline.new [
       HTML::Pipeline::JollyGoodCode::NohtmlMarkdownFilter,
       HTML::Pipeline::SanitizationFilter,
+      HTML::Pipeline::JollyGoodCode::EmojiFilter,
       HTML::Pipeline::RougeFilter,
     ], { gfm: true, **options }
 

@@ -14,6 +14,7 @@ gem "html-pipeline", "~> 2.4.1"
 gem "github-markdown", "~> 0.6.9"
 gem "sanitize", "~> 4.0.1"
 gem "html-pipeline-rouge_filter", "~> 1.0.4"
+gem "twemoji"
 
 group :development, :test do
   gem "byebug", platform: :mri

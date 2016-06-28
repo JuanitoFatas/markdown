@@ -457,4 +457,26 @@ RSpec.describe RenderMarkdown do
 
     expect { render_markdown(content) }.not_to raise_error
   end
+
+  it "Twemoji" do
+    content = <<-TEXT.strip_heredoc
+      :heart_eyes:
+      :flag-sg:
+      :man-heart-man:
+      :man-woman-boy:
+      :man::skin-tone-5:
+      not render `:heart_eyes:`
+    TEXT
+
+    html = render_markdown(content)
+
+    expect(html).to eq(<<-TEXT.strip_heredoc.strip)
+      <p><img draggable="false" title=":heart_eyes:" alt="😍" src="https://twemoji.maxcdn.com/2/svg/1f60d.svg" class="emoji"><br>
+      <img draggable="false" title=":flag-sg:" alt="🇸🇬" src="https://twemoji.maxcdn.com/2/svg/1f1f8-1f1ec.svg" class="emoji"><br>
+      <img draggable="false" title=":man-heart-man:" alt="👨‍❤️‍👨" src="https://twemoji.maxcdn.com/2/svg/1f468-200d-2764-fe0f-200d-1f468.svg" class="emoji"><br>
+      <img draggable="false" title=":man-woman-boy:" alt="👨‍👩‍👦" src="https://twemoji.maxcdn.com/2/svg/1f468-200d-1f469-200d-1f466.svg" class="emoji"><br>
+      <img draggable="false" title=":man::skin-tone-5:" alt="👨🏾" src="https://twemoji.maxcdn.com/2/svg/1f468-1f3fe.svg" class="emoji"><br>
+      not render <code>:heart_eyes:</code></p>
+    TEXT
+  end
 end
