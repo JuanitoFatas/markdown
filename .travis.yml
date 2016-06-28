@@ -1,0 +1,17 @@
+before_script:
+  - psql -c 'create database jollygoodcode_test;' -U postgres
+language: ruby
+cache: bundler
+sudo: false
+rvm:
+  - 2.3.1
+  - 2.3.0
+  - 2.2
+  - 2.1
+  - 2.0
+  - ruby-head
+matrix:
+  allow_failures:
+    - rvm: 2.0
+    - rvm: ruby-head
+  fast_finish: true
