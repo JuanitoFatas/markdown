@@ -10,6 +10,11 @@ gem "jquery-rails"
 gem "turbolinks", "~> 5.x"
 gem "jbuilder", "~> 2.5"
 
+gem "html-pipeline", "~> 2.4.1"
+gem "github-markdown", "~> 0.6.9"
+gem "sanitize", "~> 4.0.1"
+gem "html-pipeline-rouge_filter", "~> 1.0.4"
+
 group :development, :test do
   gem "byebug", platform: :mri
   gem "rspec-rails"
