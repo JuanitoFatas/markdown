@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", ">= 5.0.0.rc2", "< 5.1"
+gem "rails", "~> 5.0.0"
 gem "pg", "~> 0.18"
 gem "puma", "~> 3.0"
 gem "sass-rails", "~> 5.0"
@@ -10,7 +10,7 @@ gem "jquery-rails"
 gem "turbolinks", "~> 5.x"
 gem "jbuilder", "~> 2.5"
 
-gem "html-pipeline", "~> 2.4.1"
+gem "html-pipeline", git: "https://github.com/jch/html-pipeline.git", branch: "bump-rails-dependency"
 gem "github-markdown", "~> 0.6.9"
 gem "sanitize", "~> 4.0.1"
 gem "html-pipeline-rouge_filter", "~> 1.0.4"
